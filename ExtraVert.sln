@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExtraVert", "ExtraVert.csproj", "{CD1EA00A-DE85-43CC-BB88-B8955DCC1B27}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CD1EA00A-DE85-43CC-BB88-B8955DCC1B27}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD1EA00A-DE85-43CC-BB88-B8955DCC1B27}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD1EA00A-DE85-43CC-BB88-B8955DCC1B27}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD1EA00A-DE85-43CC-BB88-B8955DCC1B27}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {330B23A5-0119-449C-B99C-71AB7E6A560D}
+	EndGlobalSection
+EndGlobal
