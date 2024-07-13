@@ -246,45 +246,39 @@ void PlantStats()
 
 void LowestPrice()
 {
-    List<Plant> availablePlants = plants.Where(p => !p.Sold).ToList();
-    string plantLowestPrice =
-                availablePlants.Aggregate(availablePlants[0], (currLongest, next) =>
-                currLongest.AskingPrice > next.AskingPrice ? next : currLongest,
-                plant => plant.Species);
+    var availablePlants = plants.Where(p => !p.Sold);
+    var plantLowestPrice = availablePlants.OrderBy(p => p.AskingPrice).First().Species;
     Console.WriteLine($"The least expensive plant is {plantLowestPrice}");
 }
 
 void NumberOfAvailablePlants()
 {
-    List<Plant> availablePlants = plants.Where(p => !p.Sold).ToList();
-    Console.WriteLine($"There are {availablePlants.Count} plants available.");
+    var availablePlantsCount = plants.Count(p => !p.Sold);
+    Console.WriteLine($"There are {availablePlantsCount} plants available.");
 }
 
 void HighestLightNeeds()
 {
-    List<Plant> availablePlants = plants.Where(p => !p.Sold).ToList();
-    string plantHighestneeds = availablePlants.Aggregate(availablePlants[0], (currHighest, next) =>
-                currHighest.LightNeeds < next.LightNeeds ? next : currHighest,
-                plant => plant.Species);
-    Console.WriteLine($"The plant with the highest light needs is {plantHighestneeds}");
+    var availablePlants = plants.Where(p => !p.Sold);
+    var plantHighestNeeds = availablePlants.OrderByDescending(p => p.LightNeeds).First().Species;
+    Console.WriteLine($"The plant with the highest light needs is {plantHighestNeeds}");
 }
 
 void AverageLightNeeds()
 {
-    List<Plant> availablePlants = plants.Where(p => !p.Sold).ToList();
-    int sumLightNeeds = availablePlants.Aggregate(0, (acc, curr) =>
-               acc + curr.LightNeeds,
-               sum => sum
-           );
-    Console.WriteLine($"The average light needs is {sumLightNeeds / availablePlants.Count}");
+    var availablePlants = plants.Where(p => !p.Sold);
+    var averageLightNeeds = availablePlants.Average(p => p.LightNeeds);
+    Console.WriteLine($"The average light needs is {averageLightNeeds}");
 }
 
 void PercentageOfPlantsAdopted()
 {
-    List<Plant> adoptedPlants = plants.Where(plant => plant.Sold == true).ToList();
-    double percentPlantAdopted = Math.Round((double)adoptedPlants.Count / (double)plants.Count * 100);
-    Console.WriteLine($"Percentage of Plants Adopted: {percentPlantAdopted}%");
+    var adoptedPlantsCount = plants.Count(p => p.Sold);
+    var totalPlantsCount = plants.Count();
+    double percentPlantsAdopted = Math.Round((double)adoptedPlantsCount / totalPlantsCount * 100);
+    Console.WriteLine($"Percentage of Plants Adopted: {percentPlantsAdopted}%");
 }
+
 
 string PlantDetails(Plant plant)
 {
